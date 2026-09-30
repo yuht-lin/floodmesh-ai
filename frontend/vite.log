@@ -1,0 +1,9 @@
+
+> floodmesh-ai-frontend@1.0.0 dev
+> vite --host 0.0.0.0 --port 3000
+
+
+  VITE v5.4.21  ready in 132 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://10.98.218.49:3000/

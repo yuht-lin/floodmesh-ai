@@ -1,0 +1,75 @@
+INFO:     Will watch for changes in these directories: ['/home/yuhtlin/floodmesh-ai/backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [7865] using WatchFiles
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("incidents")
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("resources")
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("assignments")
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("audit_logs")
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-30 21:55:17,906 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Started server process [7879]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2026-09-30 21:55:22,758 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:22,779 INFO sqlalchemy.engine.Engine SELECT incidents.incident_id AS incidents_incident_id, incidents.timestamp AS incidents_timestamp, incidents.latitude AS incidents_latitude, incidents.longitude AS incidents_longitude, incidents.location_name AS incidents_location_name, incidents.description AS incidents_description, incidents.original_report AS incidents_original_report, incidents.language AS incidents_language, incidents.people_affected AS incidents_people_affected, incidents.vulnerable_people AS incidents_vulnerable_people, incidents.medical_urgency AS incidents_medical_urgency, incidents.flood_severity AS incidents_flood_severity, incidents.isolation_level AS incidents_isolation_level, incidents.accessibility AS incidents_accessibility, incidents.incident_type AS incidents_incident_type, incidents.source AS incidents_source, incidents.confidence AS incidents_confidence, incidents.required_resource_type AS incidents_required_resource_type, incidents.required_capacity AS incidents_required_capacity, incidents.status AS incidents_status, incidents.priority_score AS incidents_priority_score, incidents.priority_level AS incidents_priority_level, incidents.created_at AS incidents_created_at, incidents.updated_at AS incidents_updated_at 
+FROM incidents ORDER BY incidents.priority_score DESC
+2026-09-30 21:55:22,779 INFO sqlalchemy.engine.Engine [generated in 0.00022s] ()
+INFO:     127.0.0.1:44148 - "GET /incidents HTTP/1.1" 200 OK
+2026-09-30 21:55:22,789 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:22,791 INFO sqlalchemy.engine.Engine SELECT resources.resource_id AS resources_resource_id, resources.resource_type AS resources_resource_type, resources.name AS resources_name, resources.latitude AS resources_latitude, resources.longitude AS resources_longitude, resources.capacity AS resources_capacity, resources.status AS resources_status, resources.medical_capability AS resources_medical_capability, resources.team_size AS resources_team_size, resources.speed_kmh AS resources_speed_kmh, resources.current_assignment_id AS resources_current_assignment_id, resources.last_updated AS resources_last_updated 
+FROM resources
+2026-09-30 21:55:22,792 INFO sqlalchemy.engine.Engine [generated in 0.00139s] ()
+INFO:     127.0.0.1:44152 - "GET /resources/ HTTP/1.1" 200 OK
+2026-09-30 21:55:22,796 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-30 21:55:22,797 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-30 21:55:22,812 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:22,813 INFO sqlalchemy.engine.Engine SELECT incidents.incident_id AS incidents_incident_id, incidents.timestamp AS incidents_timestamp, incidents.latitude AS incidents_latitude, incidents.longitude AS incidents_longitude, incidents.location_name AS incidents_location_name, incidents.description AS incidents_description, incidents.original_report AS incidents_original_report, incidents.language AS incidents_language, incidents.people_affected AS incidents_people_affected, incidents.vulnerable_people AS incidents_vulnerable_people, incidents.medical_urgency AS incidents_medical_urgency, incidents.flood_severity AS incidents_flood_severity, incidents.isolation_level AS incidents_isolation_level, incidents.accessibility AS incidents_accessibility, incidents.incident_type AS incidents_incident_type, incidents.source AS incidents_source, incidents.confidence AS incidents_confidence, incidents.required_resource_type AS incidents_required_resource_type, incidents.required_capacity AS incidents_required_capacity, incidents.status AS incidents_status, incidents.priority_score AS incidents_priority_score, incidents.priority_level AS incidents_priority_level, incidents.created_at AS incidents_created_at, incidents.updated_at AS incidents_updated_at 
+FROM incidents ORDER BY incidents.priority_score DESC
+2026-09-30 21:55:22,813 INFO sqlalchemy.engine.Engine [cached since 0.0343s ago] ()
+INFO:     127.0.0.1:44158 - "GET /incidents HTTP/1.1" 200 OK
+2026-09-30 21:55:22,816 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-30 21:55:22,817 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:22,817 INFO sqlalchemy.engine.Engine SELECT resources.resource_id AS resources_resource_id, resources.resource_type AS resources_resource_type, resources.name AS resources_name, resources.latitude AS resources_latitude, resources.longitude AS resources_longitude, resources.capacity AS resources_capacity, resources.status AS resources_status, resources.medical_capability AS resources_medical_capability, resources.team_size AS resources_team_size, resources.speed_kmh AS resources_speed_kmh, resources.current_assignment_id AS resources_current_assignment_id, resources.last_updated AS resources_last_updated 
+FROM resources
+2026-09-30 21:55:22,817 INFO sqlalchemy.engine.Engine [cached since 0.02691s ago] ()
+INFO:     127.0.0.1:44148 - "GET /resources/ HTTP/1.1" 200 OK
+2026-09-30 21:55:22,819 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:52914 - "OPTIONS /incidents/ingest-report HTTP/1.1" 200 OK
+2026-09-30 21:55:38,450 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:38,455 INFO sqlalchemy.engine.Engine INSERT INTO incidents (incident_id, timestamp, latitude, longitude, location_name, description, original_report, language, people_affected, vulnerable_people, medical_urgency, flood_severity, isolation_level, accessibility, incident_type, source, confidence, required_resource_type, required_capacity, status, priority_score, priority_level, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-30 21:55:38,455 INFO sqlalchemy.engine.Engine [generated in 0.00097s] ('INC-AAD9DF', '2026-09-30 16:25:38.449040', 26.1756772, 91.7417143, 'Live GPS (26.1757, 91.7417)', '100 लोगों को तुरंत मदद और भोजन की ज़रूरत है।', '100 लोगों को तुरंत मदद और भोजन की ज़रूरत है।', 'en', 100, 0, 'critical', 'high', 'medium', 'fair', 'trapped_residents', 'web_live_gps', 1.0, 'rescue_boat', 1, 'pending', 90.0, 'CRITICAL', '2026-09-30 16:25:38.449040', '2026-09-30 16:25:38.449040')
+2026-09-30 21:55:38,457 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-30 21:55:38,470 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:38,473 INFO sqlalchemy.engine.Engine SELECT incidents.incident_id, incidents.timestamp, incidents.latitude, incidents.longitude, incidents.location_name, incidents.description, incidents.original_report, incidents.language, incidents.people_affected, incidents.vulnerable_people, incidents.medical_urgency, incidents.flood_severity, incidents.isolation_level, incidents.accessibility, incidents.incident_type, incidents.source, incidents.confidence, incidents.required_resource_type, incidents.required_capacity, incidents.status, incidents.priority_score, incidents.priority_level, incidents.created_at, incidents.updated_at 
+FROM incidents 
+WHERE incidents.incident_id = ?
+2026-09-30 21:55:38,473 INFO sqlalchemy.engine.Engine [generated in 0.00032s] ('INC-AAD9DF',)
+INFO:     127.0.0.1:52926 - "POST /incidents/ingest-report HTTP/1.1" 201 Created
+2026-09-30 21:55:38,475 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-30 21:55:38,484 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:38,485 INFO sqlalchemy.engine.Engine SELECT incidents.incident_id AS incidents_incident_id, incidents.timestamp AS incidents_timestamp, incidents.latitude AS incidents_latitude, incidents.longitude AS incidents_longitude, incidents.location_name AS incidents_location_name, incidents.description AS incidents_description, incidents.original_report AS incidents_original_report, incidents.language AS incidents_language, incidents.people_affected AS incidents_people_affected, incidents.vulnerable_people AS incidents_vulnerable_people, incidents.medical_urgency AS incidents_medical_urgency, incidents.flood_severity AS incidents_flood_severity, incidents.isolation_level AS incidents_isolation_level, incidents.accessibility AS incidents_accessibility, incidents.incident_type AS incidents_incident_type, incidents.source AS incidents_source, incidents.confidence AS incidents_confidence, incidents.required_resource_type AS incidents_required_resource_type, incidents.required_capacity AS incidents_required_capacity, incidents.status AS incidents_status, incidents.priority_score AS incidents_priority_score, incidents.priority_level AS incidents_priority_level, incidents.created_at AS incidents_created_at, incidents.updated_at AS incidents_updated_at 
+FROM incidents ORDER BY incidents.priority_score DESC
+2026-09-30 21:55:38,485 INFO sqlalchemy.engine.Engine [cached since 15.71s ago] ()
+INFO:     127.0.0.1:52926 - "GET /incidents HTTP/1.1" 200 OK
+2026-09-30 21:55:38,486 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:38,486 INFO sqlalchemy.engine.Engine SELECT resources.resource_id AS resources_resource_id, resources.resource_type AS resources_resource_type, resources.name AS resources_name, resources.latitude AS resources_latitude, resources.longitude AS resources_longitude, resources.capacity AS resources_capacity, resources.status AS resources_status, resources.medical_capability AS resources_medical_capability, resources.team_size AS resources_team_size, resources.speed_kmh AS resources_speed_kmh, resources.current_assignment_id AS resources_current_assignment_id, resources.last_updated AS resources_last_updated 
+FROM resources
+2026-09-30 21:55:38,486 INFO sqlalchemy.engine.Engine [cached since 15.7s ago] ()
+INFO:     127.0.0.1:52914 - "GET /resources/ HTTP/1.1" 200 OK
+2026-09-30 21:55:38,487 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-30 21:55:38,487 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-30 21:55:55,066 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-30 21:55:55,068 INFO sqlalchemy.engine.Engine SELECT incidents.incident_id AS incidents_incident_id, incidents.timestamp AS incidents_timestamp, incidents.latitude AS incidents_latitude, incidents.longitude AS incidents_longitude, incidents.location_name AS incidents_location_name, incidents.description AS incidents_description, incidents.original_report AS incidents_original_report, incidents.language AS incidents_language, incidents.people_affected AS incidents_people_affected, incidents.vulnerable_people AS incidents_vulnerable_people, incidents.medical_urgency AS incidents_medical_urgency, incidents.flood_severity AS incidents_flood_severity, incidents.isolation_level AS incidents_isolation_level, incidents.accessibility AS incidents_accessibility, incidents.incident_type AS incidents_incident_type, incidents.source AS incidents_source, incidents.confidence AS incidents_confidence, incidents.required_resource_type AS incidents_required_resource_type, incidents.required_capacity AS incidents_required_capacity, incidents.status AS incidents_status, incidents.priority_score AS incidents_priority_score, incidents.priority_level AS incidents_priority_level, incidents.created_at AS incidents_created_at, incidents.updated_at AS incidents_updated_at 
+FROM incidents 
+WHERE incidents.status = ? ORDER BY incidents.priority_score DESC
+2026-09-30 21:55:55,068 INFO sqlalchemy.engine.Engine [generated in 0.00022s] ('pending',)
+2026-09-30 21:55:55,071 INFO sqlalchemy.engine.Engine SELECT resources.resource_id AS resources_resource_id, resources.resource_type AS resources_resource_type, resources.name AS resources_name, resources.latitude AS resources_latitude, resources.longitude AS resources_longitude, resources.capacity AS resources_capacity, resources.status AS resources_status, resources.medical_capability AS resources_medical_capability, resources.team_size AS resources_team_size, resources.speed_kmh AS resources_speed_kmh, resources.current_assignment_id AS resources_current_assignment_id, resources.last_updated AS resources_last_updated 
+FROM resources 
+WHERE resources.status = ?
+2026-09-30 21:55:55,071 INFO sqlalchemy.engine.Engine [generated in 0.00028s] ('available',)
+INFO:     127.0.0.1:53206 - "POST /allocations/recalculate HTTP/1.1" 200 OK
+2026-09-30 21:55:55,095 INFO sqlalchemy.engine.Engine ROLLBACK

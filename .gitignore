@@ -1,0 +1,23 @@
+# Python / Virtual Environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Node / React
+node_modules/
+dist/
+build/
+
+# Environment / Secret Files
+.env
+.env.local
+
+# Databases
+*.db
+*.sqlite3
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
