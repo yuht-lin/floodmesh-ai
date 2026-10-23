@@ -1,91 +1,148 @@
 ```markdown
 <div align="center">
 
-# 🌊 FloodMesh AI
-
-### Autonomous Multilingual SOS Ingestion & MILP Emergency Resource Allocation Command Center
-
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
-[![Google Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
-[![Google OR-Tools](https://img.shields.io/badge/Google_OR--Tools-FF6F00?style=for-the-badge&logo=google&logoColor=white)](https://developers.google.com/optimization)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-
-**An end-to-end disaster-response intelligence platform that converts unstructured, multilingual citizen SOS signals into structured emergency incidents and optimized rescue-resource assignments.**
-
-</div>
-
----
-
-## 🚨 Problem
-
-During severe floods and other disasters, emergency response teams can receive thousands of distress messages simultaneously.
-
-These messages may:
-
-- Arrive in different languages or regional dialects
-- Contain incomplete or unstructured information
-- Describe different levels of urgency
-- Include varying numbers of victims
-- Require immediate medical or rescue assistance
-- Need to be matched against limited rescue resources
-
-Manual triage can introduce delays and inefficient resource allocation.
-
-**FloodMesh AI** addresses this problem by combining:
-
-> **Generative AI + deterministic fallback parsing + mathematical optimization + geospatial visualization**
-
----
-
+```markdown
 ## 💡 What Is FloodMesh AI?
 
-FloodMesh AI is an emergency-response command platform designed to transform citizen SOS messages into actionable dispatch decisions.
+**FloodMesh AI** is an AI-powered emergency-response command platform designed to transform unstructured citizen SOS messages into structured incidents, prioritize emergencies, and optimize rescue-resource allocation.
 
-The system:
+The platform combines **multilingual Generative AI, deterministic fallback parsing, mathematical optimization, and GIS visualization** into a unified emergency-response pipeline.
 
-1. Receives multilingual SOS messages.
-2. Extracts structured emergency information.
-3. Calculates an incident priority score.
-4. Matches incidents with available rescue resources.
-5. Uses Mixed-Integer Linear Programming (MILP) to optimize assignments.
-6. Displays incidents and dispatch routes on an interactive GIS dashboard.
+### Core Capabilities
 
-### Core Flow
+| Capability | Function |
+|---|---|
+| 🌐 **Multilingual Ingestion** | Accepts SOS messages in multiple languages |
+| 🤖 **AI Extraction** | Extracts victims, medical urgency, isolation, and other emergency entities |
+| 🎯 **Priority Scoring** | Converts incident information into a 0–100 criticality score |
+| 🧮 **MILP Optimization** | Determines efficient resource-to-incident assignments |
+| 📍 **GIS Visualization** | Displays incidents, resources, routes, distance, and ETA |
+| 🛡️ **Fallback Processing** | Provides deterministic local parsing when AI services are unavailable |
+
+### 🔄 End-to-End Architecture
+
+```mermaid
+flowchart TD
+
+    A["📱 Citizen SOS<br/>Text + GPS Location"]
+    
+    B["🌐 Multilingual NLP<br/>Google Gemini"]
+    
+    C["🛡️ Local Fallback Parser<br/>Regex / Deterministic Rules"]
+    
+    D["📦 Incident Structuring<br/>Victims • Medical • Isolation • Location"]
+    
+    E["🎯 Priority Scoring Engine<br/>Criticality Score: 0–100"]
+    
+    F["🧮 OR-Tools MILP Solver<br/>Resource Optimization"]
+    
+    G["🚑 Resource Assignment<br/>Rescue Teams • Boats • Medical Units"]
+    
+    H["🗺️ GIS Command Dashboard<br/>React • Leaflet • OpenStreetMap"]
+    
+    I["📊 Operational Intelligence<br/>Distance • ETA • Priority • Dispatch"]
+
+    A --> B
+    B --> D
+    B -. AI unavailable .-> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+
+    classDef input fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
+    classDef ai fill:#172554,stroke:#60a5fa,stroke-width:2px,color:#fff
+    classDef processing fill:#1e293b,stroke:#818cf8,stroke-width:2px,color:#fff
+    classDef optimization fill:#312e81,stroke:#a78bfa,stroke-width:2px,color:#fff
+    classDef output fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#fff
+
+    class A input
+    class B,C ai
+    class D,E processing
+    class F,G optimization
+    class H,I output
+```
+
+### 🧠 How the Pipeline Works
+
+**1. Citizen SOS**
+
+A citizen submits an emergency message along with available GPS information.
 
 ```text
-Citizen SOS
-     │
-     ▼
-┌───────────────────────────┐
-│ Multilingual NLP Ingestion│
-│ Google Gemini + Fallback  │
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│ Incident Structuring      │
-│ Victims / Medical / GPS   │
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│ Priority Scoring Engine   │
-│ Criticality: 0 → 100     │
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│ OR-Tools MILP Solver      │
-│ Resource Assignment       │
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│ GIS Command Dashboard     │
-│ React + Leaflet           │
-└───────────────────────────┘
+"100 people trapped on roof near flood embankment,
+need food and medicine urgently."
+```
+
+**2. AI-Powered Extraction**
+
+Google Gemini analyzes the message and converts natural language into structured emergency information.
+
+```json
+{
+  "victims": 100,
+  "medical_urgency": true,
+  "isolation": "ROOFTOP_TRAPPED"
+}
+```
+
+If the AI service is unavailable, FloodMesh can use its deterministic local parsing layer.
+
+**3. Incident Structuring**
+
+The extracted information is normalized into a machine-readable incident record containing:
+
+- Victim count
+- Medical urgency
+- Isolation status
+- GPS coordinates
+- Emergency requirements
+
+**4. Priority Calculation**
+
+The scoring engine evaluates the severity of the incident and generates a normalized criticality score:
+
+```text
+0 ─────────────────────────────── 100
+Low                              Critical
+```
+
+**5. Mathematical Optimization**
+
+The OR-Tools MILP engine evaluates active incidents against available rescue resources using factors such as:
+
+- Incident priority
+- Resource availability
+- Geographic distance
+- Assignment constraints
+
+**6. Resource Assignment**
+
+The optimization engine generates the selected resource-to-incident assignments.
+
+Examples include:
+
+```text
+Rescue Boat 01  →  Incident A
+Medical Team 01 →  Incident B
+Rescue Boat 02  →  Incident C
+```
+
+**7. GIS Command Center**
+
+The final assignments are displayed through an interactive GIS dashboard showing:
+
+- 📍 Incident locations
+- 🚑 Available response units
+- 🛣️ Dispatch routes
+- 📏 Distance
+- ⏱️ Estimated arrival time
+- 🎯 Incident priority
+```
+
+This will render much more professionally on GitHub **if Mermaid diagrams are enabled**, and it avoids the long vertical terminal-style diagram shown in your screenshot.
 ```
 
 ---
