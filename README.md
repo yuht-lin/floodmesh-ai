@@ -1,11 +1,17 @@
 <div align="center">
 
 ```markdown
+<div align="center">
+
 ## 💡 What Is FloodMesh AI?
 
 **FloodMesh AI** is an AI-powered emergency-response command platform designed to transform unstructured citizen SOS messages into structured incidents, prioritize emergencies, and optimize rescue-resource allocation.
 
 The platform combines **multilingual Generative AI, deterministic fallback parsing, mathematical optimization, and GIS visualization** into a unified emergency-response pipeline.
+
+</div>
+
+---
 
 ### Core Capabilities
 
@@ -18,32 +24,34 @@ The platform combines **multilingual Generative AI, deterministic fallback parsi
 | 📍 **GIS Visualization** | Displays incidents, resources, routes, distance, and ETA |
 | 🛡️ **Fallback Processing** | Provides deterministic local parsing when AI services are unavailable |
 
+---
+
 ### 🔄 End-to-End Architecture
 
 ```mermaid
 flowchart TD
 
     A["📱 Citizen SOS<br/>Text + GPS Location"]
-    
+
     B["🌐 Multilingual NLP<br/>Google Gemini"]
-    
+
     C["🛡️ Local Fallback Parser<br/>Regex / Deterministic Rules"]
-    
+
     D["📦 Incident Structuring<br/>Victims • Medical • Isolation • Location"]
-    
+
     E["🎯 Priority Scoring Engine<br/>Criticality Score: 0–100"]
-    
+
     F["🧮 OR-Tools MILP Solver<br/>Resource Optimization"]
-    
+
     G["🚑 Resource Assignment<br/>Rescue Teams • Boats • Medical Units"]
-    
+
     H["🗺️ GIS Command Dashboard<br/>React • Leaflet • OpenStreetMap"]
-    
+
     I["📊 Operational Intelligence<br/>Distance • ETA • Priority • Dispatch"]
 
     A --> B
     B --> D
-    B -. AI unavailable .-> C
+    B -.->|AI unavailable| C
     C --> D
     D --> E
     E --> F
@@ -51,11 +59,11 @@ flowchart TD
     G --> H
     H --> I
 
-    classDef input fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#fff
-    classDef ai fill:#172554,stroke:#60a5fa,stroke-width:2px,color:#fff
-    classDef processing fill:#1e293b,stroke:#818cf8,stroke-width:2px,color:#fff
-    classDef optimization fill:#312e81,stroke:#a78bfa,stroke-width:2px,color:#fff
-    classDef output fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#fff
+    classDef input fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#ffffff
+    classDef ai fill:#172554,stroke:#60a5fa,stroke-width:2px,color:#ffffff
+    classDef processing fill:#1e293b,stroke:#818cf8,stroke-width:2px,color:#ffffff
+    classDef optimization fill:#312e81,stroke:#a78bfa,stroke-width:2px,color:#ffffff
+    classDef output fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#ffffff
 
     class A input
     class B,C ai
