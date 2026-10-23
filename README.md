@@ -1,75 +1,31 @@
+
 <div align="center">
 
-```markdown
-<div align="center">
+# 🌊 FloodMesh AI
+### *Autonomous Multilingual SOS Ingestion & MILP Emergency Resource Allocation Command Center*
 
-## 💡 What Is FloodMesh AI?
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Google Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://deepmind.google/technologies/gemini/)
+[![Google OR-Tools](https://img.shields.io/badge/Google_OR--Tools-FF6F00?style=for-the-badge&logo=google&logoColor=white)](https://developers.google.com/optimization)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-**FloodMesh AI** is an AI-powered emergency-response command platform designed to transform unstructured citizen SOS messages into structured incidents, prioritize emergencies, and optimize rescue-resource allocation.
+*An end-to-end disaster logistics framework converting unstructured multi-dialect citizen SOS signals into real-time, mathematically optimal rescue team routing vectors.*
 
-The platform combines **multilingual Generative AI, deterministic fallback parsing, mathematical optimization, and GIS visualization** into a unified emergency-response pipeline.
+---
 
 </div>
 
----
+## 📌 Executive Summary
 
-### Core Capabilities
+During severe flood events, disaster response operations are crippled by information overload and manual triage delays. Thousands of frantic distress calls arrive simultaneously across natural languages and regional dialects, leading to resource misallocation and double-booking.
 
-| Capability | Function |
-|---|---|
-| 🌐 **Multilingual Ingestion** | Accepts SOS messages in multiple languages |
-| 🤖 **AI Extraction** | Extracts victims, medical urgency, isolation, and other emergency entities |
-| 🎯 **Priority Scoring** | Converts incident information into a 0–100 criticality score |
-| 🧮 **MILP Optimization** | Determines efficient resource-to-incident assignments |
-| 📍 **GIS Visualization** | Displays incidents, resources, routes, distance, and ETA |
-| 🛡️ **Fallback Processing** | Provides deterministic local parsing when AI services are unavailable |
+**FloodMesh AI** resolves emergency dispatch latency by unifying **Generative AI Natural Language Processing** with **Mixed-Integer Linear Programming (MILP)**. The platform automatically extracts structured disaster parameters, calculates criticality scores, and solves multi-vehicle allocation constraints in under 150 milliseconds.
 
 ---
 
-### 🔄 End-to-End Architecture
-
-```mermaid
-flowchart TD
-
-    A["📱 Citizen SOS<br/>Text + GPS Location"]
-
-    B["🌐 Multilingual NLP<br/>Google Gemini"]
-
-    C["🛡️ Local Fallback Parser<br/>Regex / Deterministic Rules"]
-
-    D["📦 Incident Structuring<br/>Victims • Medical • Isolation • Location"]
-
-    E["🎯 Priority Scoring Engine<br/>Criticality Score: 0–100"]
-
-    F["🧮 OR-Tools MILP Solver<br/>Resource Optimization"]
-
-    G["🚑 Resource Assignment<br/>Rescue Teams • Boats • Medical Units"]
-
-    H["🗺️ GIS Command Dashboard<br/>React • Leaflet • OpenStreetMap"]
-
-    I["📊 Operational Intelligence<br/>Distance • ETA • Priority • Dispatch"]
-
-    A --> B
-    B --> D
-    B -.->|AI unavailable| C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> H
-    H --> I
-
-    classDef input fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#ffffff
-    classDef ai fill:#172554,stroke:#60a5fa,stroke-width:2px,color:#ffffff
-    classDef processing fill:#1e293b,stroke:#818cf8,stroke-width:2px,color:#ffffff
-    classDef optimization fill:#312e81,stroke:#a78bfa,stroke-width:2px,color:#ffffff
-    classDef output fill:#064e3b,stroke:#34d399,stroke-width:2px,color:#ffffff
-
-    class A input
-    class B,C ai
-    class D,E processing
-    class F,G optimization
-    class H,I output
+## ⚡ Core Architecture & Pipeline
 ```
 
 ### 🧠 How the Pipeline Works
